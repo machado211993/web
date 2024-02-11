@@ -1,0 +1,105 @@
+<nav class="navbar navbar-expand-lg navBar">
+    <div class="containerImg">
+        <a th:href="@{/}" class="navbar-brand d-flex align-items-center" id="navbar-logo">
+            <img th:src="@{/img/alcancia.png}" width="100px" height="auto" alt="Img logo egg">
+        </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto elementos">
+
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Relevamientos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')"  th:href="@{/relevamiento/registrar}">Crear Relevamiento</a></li>
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li><a class="dropdown-item"   th:href="@{/relevamiento/lista}">Listar Relevamiento</a></li>
+                </ul>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" sec:authorize="hasRole('ADMIN')" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Siniestros 
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')"  th:href="@{/siniestro/registrar}">Crear Siniestro</a></li>
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li><a class="dropdown-item"  th:href="@{/siniestro/lista}">Listar Siniestro</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" sec:authorize="hasRole('ADMIN')" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Conductores 
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')"  th:href="@{/conductor/registrar}">Crear Conductor</a></li>
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li><a class="dropdown-item"  th:href="@{/conductor/lista}">Listar conductor</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" sec:authorize="hasRole('ADMIN')" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vehiculos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')"  th:href="@{/rubro/registrar}">Crear Vehiculo</a></li>
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li><a class="dropdown-item" th:href="@{/vehiculo/lista}">Listar Vehiculo</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" sec:authorize="hasRole('ADMIN')" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Clientes
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')"  th:href="@{/registrar}">Registrar clientes</a></li>
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li><a class="dropdown-item"  th:href="@{/listarUsuarios}">Listar Clientes</a></li>
+
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Perfil
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" th:href="@{/perfil}">Editar Perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " th:if="${session.usuariosession == null}" href="/registrar" id="navbarDropdown" role="button" aria-expanded="false">
+                    Registrate!
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:if="${session.usuariosession == null}" href="/login" id="navbarDropdown" role="button" aria-expanded="false">
+                    LOGIN!
+                </a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+
